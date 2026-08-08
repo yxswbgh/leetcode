@@ -11,7 +11,7 @@ class Solution1:
         return 0
 
 
-class Solution2:
+class Solution2: #复杂度=O(N)，两个指针分别遍历一次
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         #滑动窗口（快慢指针），申请两个指针，一个fast（探路） 一个slow
         #fast往右走，窗口变大，slow往左走，窗口变小
