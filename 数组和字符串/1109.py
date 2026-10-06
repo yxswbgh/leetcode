@@ -26,4 +26,21 @@ class Solution2:
         return answer
 
 
+class Solution3:
+    #差分数组
+    def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
+        diff=[0]*(n+1)
+        for first,last,seats in bookings:
+            diff[first-1]+=seats
+            diff[last]-=seats
+            #first,last从1开始，在first-1站上seats个人，在last站下seats个人
+
+        ans=[0]*n
+
+        for i in range(n):
+            if i==0:
+                ans[i]=diff[0]
+                continue
+            ans[i]=ans[i-1]+diff[i]
+        return ans
         
